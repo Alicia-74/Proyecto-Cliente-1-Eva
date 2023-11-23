@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="../css/productos.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/productos.js" defer></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fake Store API Web</h1>
+            <div class="two columns u-pull-right">
+                <ul>
+                    <li class="submenu">
+                            <img src="../img/cart.png" id="img-carrito">
+                            <div id="carrito">
+                                    
+                                    <table id="lista-carrito" class="u-full-width">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="compra">
+                                        <p id="total-compra">Total: $0.00</p>
+                                        <p id="confirmar-compra" class="button-u-xfull-width">Comprar</p>
+                                    </div>
+                                    <p id="vaciar-carrito" class="button-u-full-width">Vaciar Carrito</p>
+                                    
+                            </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="products"></div>
+    </div>
+    
+</body>
+</html>

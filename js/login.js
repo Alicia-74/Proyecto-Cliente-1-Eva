@@ -20,7 +20,7 @@ const login = document.getElementById('loginForm');
                     // Almacenar nombre de usuario en sessionStorage tras iniciar sesión
                     sessionStorage.setItem('username', username);
                     // Redirigir a la página de productos de la api
-                    window.location.href = 'https://fakestoreapi.com/products';
+                    window.location.href = '../productos/productos.html';
                 } else {
                     alert('Credenciales incorrectas');
                 }
