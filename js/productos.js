@@ -29,18 +29,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-           // Asigna un evento de clic a cada producto para redirigir al hacer clic en la imagen
-            productos.forEach((producto, index) => {
-                const productoDiv = document.querySelectorAll(".producto")[index];
-                const imagenProducto = productoDiv.querySelector("img");
 
-                imagenProducto.addEventListener('click', function () {
-                    mostrarPaginaProducto(producto);
-                });
-            });
 
+            // Cargar y mostrar las categorías disponibles al cargar la página
+            cargarCategorias();
+
+
+            // Asigna un evento de clic a cada producto para redirigir al hacer clic en la imagen
+            asignarEventosAImagenes(productos);
+
+            
+        })
+        .catch(error => {
+            console.error('Error al cargar los productos:', error);
         });
+
+    // Localiza la imagen de perfil
+    const imgPerfil = document.getElementById("img-perfil");
+
+    // Agrega un evento click para redirigir a la página de perfil
+    imgPerfil.addEventListener("click", function() {
+        window.location.href = "../perfil/perfil.html";
+    });
 });
+
 
 // Función para mostrar la página del producto seleccionado
 function mostrarPaginaProducto(producto) {
@@ -61,7 +73,7 @@ function mostrarProductos(productos) {
         imagen.alt = producto.title;
 
         const detalles = document.createElement("div");
-        detalles.innerHTML = `<h3 class="truncated" data-full-text="false" onclick="toggleText(this)">${producto.title} <span class="read-more">Leer más</span></h3><p class="full-text" style="display: none;">${producto.description}</p><p><strong>Precio:</strong> $${producto.price}</p>`;
+        detalles.innerHTML = `<h3 class="truncated" data-full-text="false" onclick="toggleText(this)">${producto.title} <span class="read-more">Leer más</span></h3><p><strong>Precio:</strong> $${producto.price}</p>`;
         const botonAgregarCarrito = document.createElement("button");
         botonAgregarCarrito.textContent = "Añadir al carrito";
         botonAgregarCarrito.classList.add("btn-agregar-carrito");
@@ -75,6 +87,77 @@ function mostrarProductos(productos) {
     });
 }
 
+
+// Función para mostrar los productos filtrados por categoría
+function mostrarProductosPorCategoria(categoria) {
+    // Realizar una solicitud GET a la API Fake Store para obtener los productos por categoría
+    fetch(`https://fakestoreapi.com/products/category/${categoria}`)
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            console.log('Productos obtenidos:', datos);
+            // Limpiar el contenedor de productos
+            const contenedorProductos = document.getElementById("products");
+            contenedorProductos.innerHTML = "";
+            
+            // Mostrar los productos filtrados por categoría
+            mostrarProductos(datos);
+
+            // Restaurar el evento de clic para agregar al carrito
+            contenedorProductos.addEventListener('click', function (event) {
+                if (event.target.classList.contains('btn-agregar-carrito')) {
+                    const index = event.target.dataset.index;
+                    agregarAlCarrito(datos[index]);
+                }
+            });
+
+            // Asigna un evento de clic a cada producto para redirigir al hacer clic en la imagen
+            asignarEventosAImagenes(datos);
+        })
+        .catch(error => {
+            console.error('Error al obtener los productos:', error);
+        });
+
+        
+}
+
+// Función para cargar las categorías de productos
+function cargarCategorias() {
+
+            const categorias = ["Todos","electronics", "jewelery", "men's clothing", "women's clothing"];
+
+            // Mostrar las categorías en un menú
+            const menuCategorias = document.getElementById('menu-categorias');
+            categorias.forEach(categoria => {
+                const opcionCategoria = document.createElement('li');
+                opcionCategoria.textContent = categoria;
+                opcionCategoria.addEventListener('click', function () {
+                    
+                    if (categoria === 'Todos') {
+                        window.location.href = '../productos/productos.html'; // Redirige a la página de productos
+                    } else {
+                        mostrarProductosPorCategoria(categoria);
+                    }
+                });
+                menuCategorias.appendChild(opcionCategoria);
+               
+            });
+
+        
+}
+
+
+
+// Función para asignar eventos a las imágenes de los productos
+function asignarEventosAImagenes(productos) {
+    productos.forEach((producto, index) => {
+        const productoDiv = document.querySelectorAll(".producto")[index];
+        const imagenProducto = productoDiv.querySelector("img");
+
+        imagenProducto.addEventListener('click', function () {
+            mostrarPaginaProducto(producto);
+        });
+    });
+}
 
 // Función para alternar entre mostrar texto completo y truncado
 function toggleText(element) {

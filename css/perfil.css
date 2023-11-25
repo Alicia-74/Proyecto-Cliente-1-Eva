@@ -1,0 +1,74 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header, footer {
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Estilos para la sección de perfil */
+.perfil-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.informacion-personal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.historial-carritos {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de detalles del carrito */
+.detalle-carrito {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Estilos para los encabezados */
+h2 {
+    color: #444;
+    font-size: 30px;
+}
+
+/* Estilos para la lista de carritos */
+.lista-carritos {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-carritos li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

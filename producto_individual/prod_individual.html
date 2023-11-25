@@ -6,7 +6,6 @@
     <title>Detalles del Producto</title>
     <link href="../css/prod_indiv.css" rel="stylesheet">
     <script type="text/javascript" src="../js/prod_individual.js" defer></script>
-    <script type="text/javascript" src="../js/borrar.js"></script>
 </head>
 <body>
     <header>
@@ -20,10 +19,16 @@
 
         <button id="botonActualizar">Actualizar</button>
         <button id="deleteButton">Borrar</button>
+
+        <form id="updateForm">
+            <input type="text" id="productName" placeholder="Nombre del producto">
+            <input type="number" id="productPrice" placeholder="Precio">
+            <input type="text" id="productDescription" placeholder="Descripción">
+            <input type="number" id="productRating" placeholder="Rating">
+            <input type="number" id="productVotes" placeholder="Votos">
+        
+            <button id="guardar" type="submit">Guardar</button>
+        </form>  
     
     </main>
-
-    <footer>
-        <p>&copy; 2023 Tienda Online</p>
-        <!-- Información de contacto, enlaces adicionales, etc. -->
-    </footer>
+</body>    

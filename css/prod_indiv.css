@@ -49,6 +49,10 @@ footer {
 #product-details {
     display: flex;
     margin-top: 20px;
+    font-size: 16px;
+    padding-right: 350px;
+    padding-left: 200px;
+    padding-top: 100px;
 }
 
 #product-details img {
@@ -94,77 +98,6 @@ footer {
 #product-details .btn-add-to-cart:hover {
     background-color: #555;
 }
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-
-/* Estilos para los detalles del producto */
-#product-details {
-    display: flex;
-    margin-top: 20px;
-    font-size: 16px;
-    padding-right: 350px;
-    padding-left: 200px;
-    padding-top: 100px;
-}
-
-#product-details img {
-    width: 400px;
-    height: auto;
-    margin-right: 20px;
-    padding: 40px;
-}
-
-#product-details .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex: 1;
-}
-
 
 button {
     background-color: #50b453;

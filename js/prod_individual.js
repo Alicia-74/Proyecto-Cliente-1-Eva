@@ -9,13 +9,7 @@ const productDetailsContainer = document.getElementById('product-details'); // E
 fetch(`https://fakestoreapi.com/products/${productId}`) // Realiza una solicitud GET a la URL del producto
     .then(response => response.json()) // Parsea la respuesta a formato JSON
     .then(product => {
-        // Crear elementos HTML para mostrar los detalles del producto
 
-// Continuación del código anterior...
-
-fetch(`https://fakestoreapi.com/products/${productId}`)
-    .then(response => response.json())
-    .then(product => {
         // Crear elementos HTML para mostrar los detalles del producto
 
         // Crear y configurar la imagen del producto
@@ -71,14 +65,7 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
 
 
     
-    // Escucha el evento de envío del formulario
-    document.getElementById('botonActualizar').addEventListener('click', function(event) {
-        // Previene el comportamiento predeterminado del formulario (evita la recarga de la página)
-        event.preventDefault();
-        //Redirigir a la página del formulario actualizar productos de la api
-        window.location.href = `../actualizar/actualizar.html`;
 
-    });
-});
+
 
 
