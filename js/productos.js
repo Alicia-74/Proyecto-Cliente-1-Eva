@@ -161,6 +161,47 @@ function asignarEventosAImagenes(productos) {
 }
 
 
+    // Obtener la referencia a la imagen del carrito y al contenedor del carrito
+    const imgCarrito = document.getElementById('img-carrito');
+    const carritoLista = document.getElementById('carrito');
+
+    const ocultar = carritoLista.style.display = 'none';
+
+    // Mostrar u ocultar el carrito al hacer clic en la imagen del carrito
+    imgCarrito.addEventListener('click', function(event) {
+        event.stopPropagation(); // Evitar que el evento se propague a otros elementos
+        carritoLista.classList.toggle('visible'); // Alternar la clase para mostrar u ocultar
+    });
+         
+
+    
+
+    // Obtener la referencia a la imagen de añadir producto y manejar el evento hover
+    const imgAñadir = document.getElementById('img-añadir');
+    imgAñadir.addEventListener('mouseover', function() {
+        // Mostrar texto al pasar el mouse sobre la imagen
+        imgAñadir.setAttribute('title', 'Añadir producto');
+    });
+
+    // Obtener la referencia a la imagen de perfil y manejar el evento hover
+    const imgPerfil = document.getElementById('img-perfil');
+    imgPerfil.addEventListener('mouseover', function() {
+        // Mostrar texto al pasar el mouse sobre la imagen
+        imgPerfil.setAttribute('title', 'Perfil');
+    });
+
+    // Ocultar el carrito al pasar el ratón por encima de la imagen de perfil
+    imgPerfil.addEventListener('mouseover', function() {
+        carritoLista.style.display = 'none';
+    });
+
+    // Ocultar el carrito al pasar el ratón por encima de la imagen de añadir producto
+    imgAñadir.addEventListener('mouseover', function() {
+        carritoLista.style.display = 'none';
+    });
+
+
+
 // Función para guardar el producto seleccionado en el localStorage
 function guardarProductoSeleccionado(producto) {
     // Verifica si hay productos guardados previamente
@@ -259,15 +300,29 @@ function mostrarCarrito() {
     totalElement.textContent = `Total: $${totalCarrito.toFixed(2)}`;
 }
 
+
+
+
+
 // Selección del botón "Comprar"
     const botonComprar = document.getElementById('confirmar-compra');
 
-    // Event listener para el botón "Comprar"
-    botonComprar.addEventListener('click', function() {
-        // Guardar productos en localStorage al mostrar el carrito
-        localStorage.setItem('productosCarrito', JSON.stringify(carrito));
-        alert('¡Productos guardados en el carrito!');
-});
+// Generar un identificador único (en este caso, usando la fecha actual)
+function generarIdentificadorUnico() {
+    return new Date().toISOString();
+  }
+  
+  // Almacenar un carrito en localStorage con un identificador único
+function guardarCarritoEnLocalStorage(carrito) {
+    const identificador = generarIdentificadorUnico();
+    localStorage.setItem(`carrito-${identificador}`, JSON.stringify(carrito));
+  }
+  
+  // Uso para guardar un carrito
+  botonComprar.addEventListener('click', function() {
+    guardarCarritoEnLocalStorage(carrito);
+    alert('¡Productos guardados en el carrito!');
+  });
 
 
 

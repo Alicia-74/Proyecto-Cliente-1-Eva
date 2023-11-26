@@ -17,6 +17,8 @@ main {
     padding: 20px;
 }
 
+
+
 /* Estilos para la sección de perfil */
 .perfil-usuario {
     display: flex;
@@ -36,15 +38,111 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
 }
 
-/* Estilos para la sección de detalles del carrito */
-.detalle-carrito {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Estilos para la tabla y sus elementos */
+#detalle-carrito-info table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+#detalle-carrito-info th,
+#detalle-carrito-info td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+#detalle-carrito-info th {
+    background-color: #f2f2f2;
+}
+
+.detalle-carrito-fila{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* .detalle-carrito-fila{
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.detalle-carrito-fila img{
+    margin: 30px;
+}
+
+.detalle-carrito-fila p{
+    margin: 30px;
+    text-align: center;
+}
+
+.detalle-carrito-fila p.nueva-linea::after {
+    content: '\A'; /* Agrega una nueva línea 
+    white-space: pre; /* Mantener espacios en blanco 
+} 
+*/
+
+
+
+/* Estilos para el botón */
+
+/* Estilos para mostrar u ocultar los detalles del carrito */
+.hidden {
+    display: none;
+}
+
+
+
+#botonVerDetalles {
+    background-color: #3488b2;
+    color: white;
+    padding: 8px 12px;
+    padding-left: 242px;
+    padding-right: 242px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+#botonVerDetalles:hover {
+    background-color: #2a6d8e;
+}
+
+
+button {
+    background-color: #50b453;
+    color: white;
+    padding: 8px 12px;
+    padding-left: 242px;
+    padding-right: 242px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+button:hover {
+    background-color: #3e9042;
 }
 
 /* Estilos para los encabezados */
@@ -53,15 +151,7 @@ h2 {
     font-size: 30px;
 }
 
-/* Estilos para la lista de carritos */
-.lista-carritos {
-    list-style: none;
-    padding: 0;
-}
 
-.lista-carritos li {
-    margin-bottom: 10px;
-}
 
 /* Estilos para los enlaces */
 a {

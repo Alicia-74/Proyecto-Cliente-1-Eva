@@ -236,6 +236,15 @@ li {
     margin-bottom: 30px; /* Agregamos un margen inferior para separar la línea del contenido debajo */
 }
 
+.oculto {
+    display: none;
+}
+
+/* Estilo para mostrar el carrito */
+.visible {
+    display: block !important; /* Cambia la visualización a bloque */
+  }
+  
 
 .imagenes{
     display: flex;
@@ -243,18 +252,33 @@ li {
 }
 
 #img-carrito{
-    padding-left: 300px;
+    padding-left: 800%;
+    width: 80%;
+    height: 30%;
+    margin-top: 7%;
 }
 
 #img-carrito:hover {
     cursor: pointer;
 }
 
+#img-añadir{
+    border-radius: 90%;
+    width: 60%;
+    height: 60%;
+    margin-left: 20px;
+    
+}
+
+#img-añadir:hover {
+    cursor: pointer;
+}
 
 #img-perfil{
     border-radius: 90%;
-    width: 50px;
-    margin-left: 40px;
+    width: 60%;
+    height: 60%;
+    margin-left: 20px;
 }
 
 #img-perfil:hover {
@@ -360,9 +384,7 @@ li {
         font-size: 30px;
     }
 
-    #img-carrito{
-        margin-left: 230px;
-    }
+   
     
 }
  
