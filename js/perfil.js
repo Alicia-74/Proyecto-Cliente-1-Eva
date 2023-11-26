@@ -98,4 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log('No hay historial de carrito en el localStorage'); // Muestra un mensaje si no hay historial de compras
     }
+
 });

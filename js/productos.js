@@ -155,38 +155,50 @@ function asignarEventosAImagenes(productos) {
 
         imagenProducto.addEventListener('click', function () {
             mostrarPaginaProducto(producto);
+            guardarProductoSeleccionado(producto)
         });
     });
 }
 
+
+// Función para guardar el producto seleccionado en el localStorage
+function guardarProductoSeleccionado(producto) {
+    // Verifica si hay productos guardados previamente
+    let productosGuardados = JSON.parse(localStorage.getItem('productosSeleccionados')) || [];
+
+    // Agrega el producto al array de productos guardados
+    productosGuardados.push(producto);
+
+    // Guarda el array actualizado en el localStorage
+    localStorage.setItem('productoSeleccionado', JSON.stringify(productosGuardados));
+}
+
+
+
 // Función para alternar entre mostrar texto completo y truncado
 function toggleText(element) {
+    // Elemento que contiene el texto completo (en este caso, el elemento h3)
+    const titleElement = element;
     // Obtiene el elemento que contiene el texto completo
-    const fullText = element.nextElementSibling;
+    const fullText = titleElement.nextElementSibling;
     // Busca el elemento 'Leer más' dentro del elemento h3
-    const readMore = element.querySelector('.read-more');
+    const readMore = titleElement.querySelector('.read-more');
 
-    // Verifica si se está mostrando el texto completo o truncado
-    if (element.dataset.fullText === 'true') {
-        // Si el texto está completo, lo trunca a dos líneas
-        element.style.webkitLineClamp = '3';
-        // Actualiza el estado para indicar texto truncado
-        element.dataset.fullText = 'false';
-        // Oculta el texto completo
-        fullText.style.display = 'none';
-        // Cambia el texto del botón a 'Leer más'
-        readMore.textContent = 'Leer más';
-    } else {
-        // Si el texto está truncado, muestra el texto completo
-        element.style.webkitLineClamp = 'initial';
-        // Actualiza el estado para indicar texto completo
-        element.dataset.fullText = 'true';
-        // Muestra el texto completo
-        fullText.style.display = 'block';
-        // Cambia el texto del botón a 'Leer menos'
-        readMore.textContent = 'Leer menos';
-    }
+        // Si el texto tiene más de dos líneas, aplica la lógica normal para mostrar "Leer más" o "Leer menos"
+        if (titleElement.dataset.fullText === 'true') {
+            titleElement.style.webkitLineClamp = '2';
+            titleElement.dataset.fullText = 'false';
+            fullText.style.display = 'none';
+            readMore.textContent = 'Leer más';
+        } else {
+            titleElement.style.webkitLineClamp = 'initial';
+            titleElement.dataset.fullText = 'true';
+            fullText.style.display = 'block';
+            readMore.textContent = 'Leer menos';
+        }
+    
 }
+
 
 
 
@@ -248,13 +260,13 @@ function mostrarCarrito() {
 }
 
 // Selección del botón "Comprar"
-const botonComprar = document.getElementById('confirmar-compra');
+    const botonComprar = document.getElementById('confirmar-compra');
 
-// Event listener para el botón "Comprar"
-botonComprar.addEventListener('click', function() {
-    // Guardar productos en localStorage
-    localStorage.setItem('productosCarrito', JSON.stringify(carrito));
-    alert('¡Productos guardados en el carrito!');
+    // Event listener para el botón "Comprar"
+    botonComprar.addEventListener('click', function() {
+        // Guardar productos en localStorage al mostrar el carrito
+        localStorage.setItem('productosCarrito', JSON.stringify(carrito));
+        alert('¡Productos guardados en el carrito!');
 });
 
 

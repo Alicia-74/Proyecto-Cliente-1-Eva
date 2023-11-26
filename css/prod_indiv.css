@@ -35,15 +35,7 @@ main {
     padding: 20px;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
+
 
 /* Estilos para los detalles del producto */
 #product-details {
@@ -51,8 +43,8 @@ footer {
     margin-top: 20px;
     font-size: 16px;
     padding-right: 350px;
-    padding-left: 200px;
-    padding-top: 100px;
+    padding-left: 230px;
+    padding-top: 30px;
 }
 
 #product-details img {
@@ -95,8 +87,51 @@ footer {
     align-self: flex-start;
 }
 
-#product-details .btn-add-to-cart:hover {
-    background-color: #555;
+
+/* Agrega estilos para la clase 'hidden' */
+.hidden {
+    display: none;
+}
+
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+
+input {
+    width: 380px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #50b453; /* Color de borde al enfocar */
+}
+
+#guardar {
+    width: 400px;
+    background-color: #50b453;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#guardar:hover {
+    background-color: #3e9042;
 }
 
 button {

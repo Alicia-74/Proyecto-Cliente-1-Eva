@@ -6,6 +6,8 @@
     <title>Detalles del Producto</title>
     <link href="../css/prod_indiv.css" rel="stylesheet">
     <script type="text/javascript" src="../js/prod_individual.js" defer></script>
+    <script type="text/javascript" src="../js/guardar.js" defer></script>
+    <script type="text/javascript" src="../js/borrar.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,18 +19,20 @@
             <div id="product-details"></div>
         </section>
 
-        <button id="botonActualizar">Actualizar</button>
+        <button id="botonActualizar">Editar</button>
         <button id="deleteButton">Borrar</button>
 
-        <form id="updateForm">
+        <form id="updateForm" class="hidden">
+            <input type="hidden" id="productIdToUpdate">
             <input type="text" id="productName" placeholder="Nombre del producto">
             <input type="number" id="productPrice" placeholder="Precio">
             <input type="text" id="productDescription" placeholder="Descripción">
             <input type="number" id="productRating" placeholder="Rating">
             <input type="number" id="productVotes" placeholder="Votos">
+            
+            <button id="guardar" type="button">Guardar</button>
+        </form>
         
-            <button id="guardar" type="submit">Guardar</button>
-        </form>  
     
     </main>
 </body>    
