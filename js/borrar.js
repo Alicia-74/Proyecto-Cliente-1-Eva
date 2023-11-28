@@ -1,12 +1,15 @@
 // Este evento se dispara cuando todo el contenido del DOM ha sido cargado
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Obtener el ID del producto que se desea actualizar desde la URL
+    const url = window.location.href;
+    const urlParams = new URLSearchParams(new URL(url).search);
+    const productIdToDelete = urlParams.get('id');
 
+
+    
     function borrarSeleccion() {
-        // Obtener el ID del producto que se desea actualizar desde la URL
-        const url = window.location.href;
-        const urlParams = new URLSearchParams(new URL(url).search);
-        const productIdToUpdate = urlParams.get('id');
+        
     
         // Obtener la lista de productos almacenados en el localStorage o un objeto vacío si no hay ninguno
         let storedProducts = JSON.parse(localStorage.getItem('Selecc_prod')) || {};
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
          // Buscar el índice del producto
-         const productIndex = storedProducts.findIndex(product => product.id == productIdToUpdate);
+         const productIndex = storedProducts.findIndex(product => product.id == productIdToDelete);
         
          if (productIndex !== -1) {
             // Eliminar el producto del localStorage
@@ -42,6 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
       
             //Llamamos a la función
             borrarSeleccion();
+            
+            // Llamar a la función para eliminar el producto en la API
+            eliminarDatosEnLaAPI(productIdToDelete);
 
     });   
+
+    function eliminarDatosEnLaAPI(productId) {
+        // Realizar la solicitud DELETE a la API para eliminar el producto específico
+        fetch(`https://fakestoreapi.com/products/${productId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log(`Producto con ID ${productId} eliminado correctamente.`);
+            } else {
+                console.error(`Error al intentar eliminar el producto con ID ${productId}.`);
+            }
+        })
+        .catch(error => console.error('Error al eliminar datos en la API:', error));
+    }
+    
 });

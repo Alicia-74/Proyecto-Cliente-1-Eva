@@ -2,20 +2,26 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 05;
     background-color: #f4f4f4;
     color: #333;
 }
 
-header, footer {
-    background-color: #444;
-    color: #fff;
-    padding: 20px;
+header {
+    background-color: #333;
+    color: white;
+    padding: 8px 20px;
+}
+
+header h2 {
+    margin: 0;
 }
 
 main {
     padding: 20px;
 }
+
+
 
 
 
@@ -73,29 +79,6 @@ main {
     padding: 10px;
 }
 
-/* .detalle-carrito-fila{
-    border-bottom: 1px solid #ddd;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-
-.detalle-carrito-fila img{
-    margin: 30px;
-}
-
-.detalle-carrito-fila p{
-    margin: 30px;
-    text-align: center;
-}
-
-.detalle-carrito-fila p.nueva-linea::after {
-    content: '\A'; /* Agrega una nueva línea 
-    white-space: pre; /* Mantener espacios en blanco 
-} 
-*/
 
 
 

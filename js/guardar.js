@@ -17,18 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* botón "Guardar"*/
 
-//Función Actualizar Producto
-    function actualizarProducto() {
-        // Obtener el ID del producto que se desea actualizar desde la URL
+    // Obtener la lista de productos almacenados en el localStorage o un objeto vacío si no hay ninguno
+    let storedProducts = JSON.parse(localStorage.getItem('Selecc_prod')) || {};
+    console.log('Productos almacenados:', storedProducts);
+    
+    // Obtener el ID del producto que se desea actualizar desde la URL
         const url = window.location.href;
         const urlParams = new URLSearchParams(new URL(url).search);
         const productIdToUpdate = urlParams.get('id');
-    
+
+        console.log('ID del producto a actualizar:', productIdToUpdate);
+
+//Función Actualizar Producto
+    function actualizarProducto() {
+
         // Obtener la lista de productos almacenados en el localStorage o un objeto vacío si no hay ninguno
         let storedProducts = JSON.parse(localStorage.getItem('Selecc_prod')) || {};
         console.log('Productos almacenados:', storedProducts);
-
-
+        
         // Verificar si storedProducts es un objeto y convertirlo a un array
         if (typeof storedProducts === 'object' && !Array.isArray(storedProducts)) {
             storedProducts = [storedProducts];
@@ -64,7 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Producto no encontrado en el localStorage para actualizar.');
         }
     }
-    
+
+
+
+
+    function actualizarDatosEnLaAPI(productId, data) {
+
+        // Realizar la solicitud PUT a la API para actualizar el producto específico
+        fetch(`https://fakestoreapi.com/products/${productId}`, {
+            method: 'PUT', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(apiData => console.log('Datos actualizados en la API:', apiData))
+
+        .catch(error => console.error('Error al actualizar datos en la API:', error));
+    }
+
+
+
+
+
+
+
     // Obtener referencia al botón "Guardar"
     const botonGuardar = document.getElementById("guardar");
 
@@ -76,8 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
             // llamar a la función actualizar producto
             actualizarProducto();
+
+            // Llamar a la función para actualizar el producto en la API
+            actualizarDatosEnLaAPI(productIdToUpdate, storedProducts);
            
      });  
+
+
+
+     
+    
     
         
 });

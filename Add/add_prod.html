@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Producto</title>
+    <link href="../css/add.css" rel="stylesheet">
+    <script src="../js/add_prod.js"></script>
+</head>
+<body>
+    <form id="productForm">
+        <h2>Add New Product</h2>
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="image">Imagen URL:</label>
+        <input type="text" id="image" name="image" required>
+
+        <label for="category">Categoría:</label>
+        <select id="category" name="category" required>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>      
+        </select>
+
+        <button type="button" onclick="guardarYEnviar()">Guardar y Enviar</button>
+    </form>
+
+    
+</body>
+</html>

@@ -16,12 +16,12 @@ fetch(`https://fakestoreapi.com/products/${productId}`) // Realiza una solicitud
         const productImageElement = document.createElement('img');
         productImageElement.src = product.image;
         productImageElement.alt = product.title;
-        productImageElement.style.width = '200px'; // Ajusta el ancho según tu diseño
-        productImageElement.style.border = '1px solid #ccc'; // Puedes ajustar el grosor y el color del borde
+        productImageElement.style.width = '200px'; // ancho
+        productImageElement.style.border = '1px solid #ccc'; //  grosor y el color del borde
 
         // Crear y configurar el contenedor de la información del producto
         const productInfoContainer = document.createElement('div');
-        productInfoContainer.style.marginLeft = '20px'; // Ajusta el margen según tu diseño
+        productInfoContainer.style.marginLeft = '20px'; // margen
 
         // Crear y configurar los demás elementos de información del producto
         const productNameElement = document.createElement('h2');

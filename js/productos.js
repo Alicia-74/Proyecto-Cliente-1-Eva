@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
     imgPerfil.addEventListener("click", function() {
         window.location.href = "../perfil/perfil.html";
     });
+
+
+     // Agrega un evento click para redirigir a la página de añadir producto new
+    imgAñadir.addEventListener('click', function() {
+        window.location.href = "../Add/add_prod.html";
+    });
 });
 
 
@@ -141,7 +147,6 @@ function cargarCategorias() {
                 menuCategorias.appendChild(opcionCategoria);
                
             });
-
         
 }
 
@@ -173,7 +178,10 @@ function asignarEventosAImagenes(productos) {
         carritoLista.classList.toggle('visible'); // Alternar la clase para mostrar u ocultar
     });
          
-
+    imgCarrito.addEventListener('mouseover', function() {
+        // Mostrar texto al pasar el mouse sobre la imagen
+        imgCarrito.setAttribute('title', 'Carrito');
+    });
     
 
     // Obtener la referencia a la imagen de añadir producto y manejar el evento hover
@@ -182,6 +190,13 @@ function asignarEventosAImagenes(productos) {
         // Mostrar texto al pasar el mouse sobre la imagen
         imgAñadir.setAttribute('title', 'Añadir producto');
     });
+    
+    // Ocultar el carrito al pasar el ratón por encima de la imagen de añadir producto
+    imgAñadir.addEventListener('mouseover', function() {
+        carritoLista.style.display = 'none';
+    });
+
+
 
     // Obtener la referencia a la imagen de perfil y manejar el evento hover
     const imgPerfil = document.getElementById('img-perfil');
@@ -195,10 +210,7 @@ function asignarEventosAImagenes(productos) {
         carritoLista.style.display = 'none';
     });
 
-    // Ocultar el carrito al pasar el ratón por encima de la imagen de añadir producto
-    imgAñadir.addEventListener('mouseover', function() {
-        carritoLista.style.display = 'none';
-    });
+    
 
 
 
